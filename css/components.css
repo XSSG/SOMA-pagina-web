@@ -101,9 +101,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(226, 223, 212, .92);
-  backdrop-filter: saturate(1.2) blur(10px);
-  -webkit-backdrop-filter: saturate(1.2) blur(10px);
+  background: rgba(226, 223, 212, .97);   /* sin backdrop-filter: el desenfoque en vivo es costoso al hacer scroll */
   border-bottom: 1px solid transparent;
   transition: border-color .3s, box-shadow .3s;
 }

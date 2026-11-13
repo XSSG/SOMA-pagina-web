@@ -378,15 +378,24 @@
   color: var(--arena);
   font-weight: 700;
   font-size: 1.25rem;
-  animation: pulse 2.6s ease-out infinite;
 }
-.hotspot:nth-of-type(2) { animation-delay: .6s; }
-.hotspot:nth-of-type(3) { animation-delay: 1.2s; }
-.hotspot:nth-of-type(4) { animation-delay: 1.8s; }
+/* Anillo de pulso: solo transform y opacity (no repinta) */
+.hotspot::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 3px solid rgba(226, 223, 212, .6);
+  animation: pulse 2.6s ease-out infinite;
+  pointer-events: none;
+}
+.hotspot:nth-of-type(2)::before { animation-delay: .6s; }
+.hotspot:nth-of-type(3)::before { animation-delay: 1.2s; }
+.hotspot:nth-of-type(4)::before { animation-delay: 1.8s; }
 @keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(226, 223, 212, .55); }
-  70%  { box-shadow: 0 0 0 16px rgba(226, 223, 212, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(226, 223, 212, 0); }
+  0%   { transform: scale(1);   opacity: 1; }
+  70%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
 }
 .anatomy__list { list-style: none; padding: 0; display: grid; gap: 1.5rem; counter-reset: part; }
 .anatomy__list li { display: grid; grid-template-columns: auto 1fr; gap: 1rem; }
@@ -616,3 +625,11 @@
 /* Los campos del formulario se apilan según el ancho de la TARJETA, no de la pantalla */
 .form-card { container-type: inline-size; }
 @container (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+/* =========================================================================
+   F. RENDIMIENTO
+   Las animaciones infinitas van en su propia capa (GPU) y se pausan
+   cuando su sección sale de pantalla (js/interacciones.js añade .is-offscreen).
+   ========================================================================= */
+.hero__product-img, .hero__pebble, .chip, .about-intro__logo, .about-intro__art .p2 { will-change: transform; }
+.is-offscreen *, .is-offscreen *::before, .is-offscreen *::after { animation-play-state: paused !important; }

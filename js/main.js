@@ -56,9 +56,16 @@
   function initHeaderShadow() {
     var header = document.querySelector('.site-header');
     if (!header) return;
-    var update = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+    var scrolled = null, pending = false;
+    var update = function () {
+      var v = window.scrollY > 8;
+      if (v !== scrolled) { scrolled = v; header.classList.toggle('is-scrolled', v); }
+      pending = false;
+    };
     update();
-    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('scroll', function () {
+      if (!pending) { pending = true; requestAnimationFrame(update); }
+    }, { passive: true });
   }
 
   /* -----------------------------------------------------------------------

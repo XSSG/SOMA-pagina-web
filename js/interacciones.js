@@ -7,6 +7,7 @@
    4. Botones de compra magnéticos
    5. Luz que sigue al cursor en secciones oscuras (+ imagotipo en movimiento)
    6. Títulos que aparecen palabra por palabra
+   7. Pausa de animaciones fuera de pantalla
    Los efectos de movimiento se desactivan con prefers-reduced-motion,
    y los de cursor solo se activan con mouse (no en pantallas táctiles).
    ========================================================================= */
@@ -45,8 +46,15 @@
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
     document.body.appendChild(btn);
 
+    var visible = false, pending = false;
     window.addEventListener('scroll', function () {
-      btn.classList.toggle('is-visible', window.scrollY > 900);
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () {
+        var v = window.scrollY > 900;
+        if (v !== visible) { visible = v; btn.classList.toggle('is-visible', v); }   // solo toca el DOM si cambia
+        pending = false;
+      });
     }, { passive: true });
     btn.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
@@ -154,7 +162,17 @@
     });
   }
 
+  /* 7. PAUSAR ANIMACIONES FUERA DE PANTALLA (rendimiento) -------------- */
+  function initPauseOffscreen() {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.target.classList.toggle('is-offscreen', !e.isIntersecting); });
+    });
+    document.querySelectorAll('.hero__visual, .about-intro__art, .anatomy__stage').forEach(function (el) { io.observe(el); });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
+    initPauseOffscreen();
     initProgress();
     initBackToTop();
     initSplitHeadings();
