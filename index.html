@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SOMA · Mango ergonómico para cocinar con menos esfuerzo</title>
+  <meta name="description" content="SOMA es un mango ergonómico de cocina con hendiduras anatómicas, superficie antideslizante y acople para tus propios cubiertos. Diseñado para personas con poca fuerza o movilidad en las manos.">
+  <meta name="theme-color" content="#393525">
+  <link rel="icon" type="image/png" sizes="64x64" href="img/marca/favicon-64.png">
+  <link rel="apple-touch-icon" href="img/marca/apple-touch-icon.png">
+
+  <!-- Activa las animaciones solo si hay JavaScript (evita parpadeos) -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Tipografías: Tanker (display del manual de marca) + Libre Franklin (texto) -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap">
+  <!-- Adobe Fonts, proyecto "SOMA web": Acumin Variable + Tosh A -->
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/ftx3nsd.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap">
+
+  <!-- Estilos del sitio (orden: base → componentes → páginas) -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/interacciones.css">
+
+  <script src="js/main.js" defer></script>
+  <script src="js/interacciones.js" defer></script>
+  <script src="js/inicio.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- =====================================================================
+       HEADER (idéntico en todas las páginas; solo cambia aria-current)
+       ===================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Logotipo provisional. Sustitúyelo por tu imagotipo desde el .zip -->
+      <a class="brand" href="index.html" aria-label="SOMA, ir al inicio"><img class="brand__logo" src="img/marca/soma-logo-carbon.png" width="299" height="120" alt=""></a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menú">
+        <span class="nav-toggle__bars"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
+          <li><a href="producto.html">Producto</a></li>
+          <li><a href="quienes-somos.html">Quiénes somos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================================================================
+         1. HERO — promesa principal + CTA de compra
+         =================================================================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <span class="eyebrow">Tus manos, tu ritmo.</span>
+          <h1 id="hero-title">Cocinar vuelve a sentirse <em>tuyo</em>.</h1>
+          <p class="lead">
+            El mango ergonómico SOMA se adapta a tu mano para que
+            agarrar, cortar, pelar y mezclar te cueste menos esfuerzo.
+            Un solo mango para tus propios cubiertos y cero apariencia de hospital.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn--cta" href="producto.html#comprar">
+              Quiero mi mango SOMA
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#como-funciona">Ver cómo funciona</a>
+          </div>
+          <ul class="hero__proof">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>Agarre antideslizante</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>Para tus propios cubiertos</li>
+          </ul>
+        </div>
+
+        <!-- Visual del producto: render real del mango SOMA (img/producto/) -->
+        <div class="hero__visual">
+          <svg class="hero__pebble hero__pebble--back" viewBox="0 0 140 120" fill="currentColor" aria-hidden="true"><ellipse cx="70" cy="36" rx="68" ry="34"/><ellipse cx="70" cy="84" rx="68" ry="34"/></svg>
+          <svg class="hero__pebble" viewBox="0 0 140 120" fill="currentColor" aria-hidden="true"><ellipse cx="70" cy="36" rx="68" ry="34"/><ellipse cx="70" cy="84" rx="68" ry="34"/></svg>
+
+          <img class="hero__product-img" src="img/producto/mango-nogal.webp" width="688" height="1000"
+               alt="Mango ergonómico SOMA: cuerpo blanco con insertos de agarre color nogal y orificio de acople en la parte superior"
+               fetchpriority="high">
+
+          <!-- Selector de color del hero (js/inicio.js) -->
+          <div class="hero-swatches" role="group" aria-label="Ver el mango en otro color">
+            <span aria-hidden="true">Color</span>
+            <button type="button" class="hero-swatch" style="--sw:var(--nogal)" data-color="Nogal" data-src="img/producto/mango-nogal.webp" aria-pressed="true" aria-label="Nogal"></button>
+            <button type="button" class="hero-swatch" style="--sw:var(--olivo)" data-color="Olivo" data-src="img/producto/mango-olivo.webp" aria-pressed="false" aria-label="Olivo"></button>
+            <button type="button" class="hero-swatch" style="--sw:var(--carbon)" data-color="Carbón" data-src="img/producto/mango-carbon.webp" aria-pressed="false" aria-label="Carbón"></button>
+          </div>
+
+          <span class="chip chip--1" aria-hidden="true"><span class="chip__dot"></span>Hendiduras para tus dedos</span>
+          <span class="chip chip--2" aria-hidden="true"><span class="chip__dot"></span>Relieve antideslizante</span>
+          <span class="chip chip--3" aria-hidden="true"><span class="chip__dot"></span>1 mango · tus cubiertos</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===================================================================
+         2. EL PROBLEMA — cifras reales (OMS, 2023)
+         =================================================================== -->
+    <section class="section bg-carbon problem" aria-labelledby="problem-title">
+      <div class="container problem__grid">
+        <div class="stack reveal">
+          <h2 id="problem-title">¡No eres tú!</h2>
+          <p class="lead">
+            La artrosis provoca dolor, rigidez y pérdida de fuerza en los dedos.
+            Con utensilios convencionales picar
+            una cebolla se vuelve cansado, incómodo y, muchas veces, un motivo
+            para pedir ayuda.
+          </p>
+        </div>
+
+        <div>
+          <div class="problem__stats">
+            <div class="stat reveal" data-delay="1">
+              <span class="stat__value"><span data-count="530">530</span><small>M</small></span>
+              <span class="stat__label">de personas vivían con artrosis en 2019.</span>
+            </div>
+            <div class="stat reveal" data-delay="2">
+              <span class="stat__value"><span data-count="194">194</span><small>M</small></span>
+              <span class="stat__label">la padecen específicamente en las manos.</span>
+            </div>
+            <div class="stat reveal" data-delay="3">
+              <span class="stat__value"><span data-count="73">73</span><small>%</small></span>
+              <span class="stat__label">de quienes la padecen tienen más de 55 años.</span>
+            </div>
+          </div>
+          <p class="source">Fuente: Organización Mundial de la Salud (OMS), 2023. Artrosis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         3. INSIGHT — conexión emocional
+         =================================================================== -->
+    <section class="section insight" aria-label="Lo que aprendimos">
+      <svg class="insight__pebble insight__pebble--l" viewBox="0 0 140 120" fill="currentColor" aria-hidden="true"><ellipse cx="70" cy="36" rx="68" ry="34"/><ellipse cx="70" cy="84" rx="68" ry="34"/></svg>
+      <svg class="insight__pebble insight__pebble--r" viewBox="0 0 140 120" fill="currentColor" aria-hidden="true"><ellipse cx="70" cy="36" rx="68" ry="34"/><ellipse cx="70" cy="84" rx="68" ry="34"/></svg>
+      <div class="container reveal">
+        <blockquote>
+          <p class="insight__quote">Lo que más pesa no es el esfuerzo de cocinar. Es <mark>perder el control</mark> de tus propias manos.</p>
+        </blockquote>
+        <p class="insight__caption">
+          SOMA no solo reduce la fuerza que necesitas: te devuelve la
+          confianza de que cada movimiento sale como lo planeaste.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         4. BENEFICIOS / VENTAJAS COMPETITIVAS
+         =================================================================== -->
+    <section class="section bg-soft" id="beneficios" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section-head text-center reveal">
+          <span class="eyebrow">Por qué SOMA</span>
+          <h2 id="benefits-title">Pensado para tu mano.<br>Diseñado para tu cocina.</h2>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M11 11.5V4a1.5 1.5 0 0 1 3 0v8"/><path d="M14 11.5V5.5a1.5 1.5 0 0 1 3 0V13"/><path d="M17 12a1.5 1.5 0 0 1 3 0v3a7 7 0 0 1-7 7h-1a7 7 0 0 1-5.6-2.8L3.5 15.5a1.6 1.6 0 0 1 2.5-2L8 15.5"/></svg></span>
+            <h3>Se adapta a tu mano</h3>
+            <p>Hendiduras anatómicas que siguen el contorno de tus dedos y reducen la fuerza que necesitas para sujetar, presionar y girar.</p>
+          </article>
+          <article class="card reveal" data-delay="1">
+            <span class="icon-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
+            <h3>No se te resbala</h3>
+            <p>Zonas de elastómero termoplástico (TPE) con textura: un agarre suave y estable para que el utensilio no se mueva cuando tú no quieres.</p>
+          </article>
+          <article class="card reveal" data-delay="2">
+            <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h14l-3.5-3.5"/><path d="M20 16H6l3.5 3.5"/></svg></span>
+            <h3>Un mango, todos tus cubiertos</h3>
+            <p>Acóplalo a tu tenedor, cuchara o cuchillo con una unión simple y resistente. No necesitas comprar cubiertos nuevos.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <h3>Firme cuando más importa</h3>
+            <p>Cuerpo rígido de polipropileno que aguanta la fuerza de picar, batir o hacer palanca, sin doblarse como las bandas de silicona.</p>
+          </article>
+          <article class="card reveal" data-delay="1">
+            <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
+            <h3>Elegante y discreto</h3>
+            <p>No tiene la apariencia de alguna herramienta médica. El mango hace lucir al producto como un utensilio contemporáneo de alta gama para la cocina.</p>
+          </article>
+          <article class="card reveal" data-delay="2">
+            <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15z"/><path d="M5 19l8-8"/></svg></span>
+            <h3>Ligero, fácil de limpiar y duradero</h3>
+            <p>Hecho para el uso diario, sencillo de lavar y con piezas reemplazables: si algo se desgasta, cambias esa parte, no todo el producto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5. CÓMO FUNCIONA
+         =================================================================== -->
+    <section class="section" id="como-funciona" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head text-center reveal">
+          <h2 id="how-title">En solo tres pasos.</h2>
+        </div>
+
+        <div class="grid grid-3 steps">
+          <div class="step reveal">
+            <h3>Elige tu cubierto</h3>
+            <p>Usa los que ya tienes en casa: cuchillo para picar, tenedor para sostener o cuchara para mezclar.</p>
+          </div>
+          <div class="step reveal" data-delay="1">
+            <h3>Encájala en el mango</h3>
+            <p>Una unión simple y resistente fija tu cubierto al mango, sin mecanismos complicados ni movimientos de precisión.</p>
+          </div>
+          <div class="step reveal" data-delay="2">
+            <h3>Hazlo a tu ritmo</h3>
+            <p>Sujeta con la palma, deja que las hendiduras guíen tus dedos y trabaja con menos esfuerzo y más control.</p>
+          </div>
+        </div>
+
+        <ul class="tools-row" aria-label="Cubiertos compatibles (no incluidos)" role="list">
+          <li class="tool-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>Cuchillo</li>
+          <li class="tool-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v6a4 4 0 0 0 8 0V2"/><path d="M12 2v6M12 12v10"/></svg>Tenedor</li>
+          <li class="tool-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="7" rx="4.5" ry="5"/><path d="M12 12v10"/></svg>Cuchara</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5b. COLORES — los tres acabados del render
+         =================================================================== -->
+    <section class="section colors" aria-labelledby="colors-title" style="padding-top:0">
+      <div class="container colors__grid">
+        <div class="stack reveal">
+          <h2 id="colors-title">Tres tonos que se ven bien en tu cocina.</h2>
+          <p class="lead">
+            El mismo diseño ergonómico en dististas presentaciones:
+          </p>
+          <ul class="color-names" role="list">
+            <li><span style="--sw:var(--nogal)"></span>Nogal</li>
+            <li><span style="--sw:var(--olivo)"></span>Olivo</li>
+            <li><span style="--sw:var(--carbon)"></span>Carbón</li>
+          </ul>
+        </div>
+        <img class="colors__img reveal" data-delay="1" src="img/producto/mango-colores.webp" width="1400" height="628" loading="lazy"
+             alt="Tres mangos SOMA con insertos de agarre en color olivo, nogal y carbón">
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         7. PRUEBA SOCIAL — resultados de validación con usuarios
+         =================================================================== -->
+    <section class="section bg-carbon" aria-labelledby="proof-title">
+      <div class="container proof__grid">
+        <div class="stack reveal">
+          <span class="eyebrow">Probado con personas reales</span>
+          <h2 id="proof-title">Lo validamos antes de ofrecértelo.</h2>
+          <p class="lead">
+            Probamos el prototipo en manos reales y escuchamos sus opiniones. Cada respuesta guía nuestros ajustes de tamaño y forma.
+          </p>
+        </div>
+
+        <div class="bars">
+          <div class="bar" style="--value:100%">
+            <div class="bar__head"><span>Considera útil un mango adaptable</span><span>100%</span></div>
+            <div class="bar__track"><div class="bar__fill"></div></div>
+          </div>
+          <div class="bar" style="--value:100%">
+            <div class="bar__head"><span>Prefiere un agarre suave tipo silicona o goma</span><span>100%</span></div>
+            <div class="bar__track"><div class="bar__fill"></div></div>
+          </div>
+          <div class="bar" style="--value:70%">
+            <div class="bar__head"><span>Sintió el agarre cómodo o muy cómodo</span><span>70%</span></div>
+            <div class="bar__track"><div class="bar__fill"></div></div>
+          </div>
+          <div class="bar" style="--value:60%">
+            <div class="bar__head"><span>Le resultó fácil sujetarlo y cambiarlo de cubierto</span><span>60%</span></div>
+            <div class="bar__track"><div class="bar__fill"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         8. CTA FINAL
+         =================================================================== -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-band reveal">
+          <img class="cta-band__logo" src="img/marca/soma-imagotipo-arena.webp" width="568" height="640" alt="" loading="lazy">
+          <h2 id="cta-title" style="margin-top:1rem">Recupera el gusto de cocinar por tu cuenta.</h2>
+          <p>Un solo mango para tus cubiertos y la independencia de siempre en tu cocina.</p>
+          <div class="btn-row">
+            <a class="btn btn--cta" href="producto.html#comprar">
+              Comprar ahora
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       FOOTER (idéntico en todas las páginas)
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="SOMA, ir al inicio"><img class="brand__logo brand__logo--footer" src="img/marca/soma-logo-arena.png" width="299" height="120" alt=""></a>
+          <p class="footer-tagline">Tus manos,<br>tu ritmo.</p>
+        </div>
+
+        <nav aria-label="Pie de página">
+          <h2 class="footer-title">Navegación</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="producto.html">Producto</a></li>
+            <li><a href="quienes-somos.html">Quiénes somos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-title">Contacto</h2>
+          <ul class="footer-links">
+            <li><a href="mailto:SOMAanahuac@gmail.com">SOMAanahuac@gmail.com</a></li>
+            <li>Mérida, Yucatán, México</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Síguenos</h2>
+          <!-- REDES: coloca tus íconos dentro de .social-link__icon -->
+          <ul class="social-list">
+            <li>
+              <a class="social-link" href="https://www.instagram.com/somaanahuac/" target="_blank" rel="noopener">
+                <span class="social-link__icon" aria-hidden="true"><!-- ícono Instagram --></span>Instagram
+              </a>
+            </li>
+            <li>
+              <!-- PENDIENTE: reemplaza "#" por la URL de la página de Facebook -->
+              <a class="social-link" href="#" target="_blank" rel="noopener">
+                <span class="social-link__icon" aria-hidden="true"><!-- ícono Facebook --></span>Facebook
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> SOMA. Todos los derechos reservados.</span>
+        <span>Proyecto académico · Universidad Anáhuac Mayab</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

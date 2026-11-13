@@ -1,0 +1,49 @@
+/* =========================================================================
+   SOMA · fonts.css
+   Tipografías del Manual de Marca servidas desde Adobe Fonts.
+   Se carga en TODAS las páginas, después de pages.css.
+
+   Para agregar o quitar estilos: fonts.adobe.com → Mis fuentes →
+   Proyectos web → "SOMA web". Los cambios se reflejan solos en este kit.
+
+   Tanker (títulos) se carga gratis desde Fontshare en cada página.
+   Si Adobe Fonts no responde, el sitio usa Libre Franklin de respaldo.
+   ========================================================================= */
+
+/* Proyecto web "SOMA web" en Adobe Fonts:
+   Acumin Variable (pesos 100–900) + Tosh A (Regular 400, Medium 500, Bold 700) */
+/* El kit se enlaza en el <head> de cada página: https://use.typekit.net/ftx3nsd.css */
+
+:root {
+  /* Acumin Variable Concept → textos informativos (párrafos, formularios) */
+  --font-body: "acumin-variable", "Libre Franklin", "Segoe UI", Arial, sans-serif;
+
+  /* Tosh A → carácter de marca en botones, menú, subtítulos y etiquetas */
+  --font-accent: "tosh-a", "Libre Franklin", "Segoe UI", Arial, sans-serif;
+}
+
+/* Acumin Variable arranca en su ancho más condensado (wdth 50).
+   Fijamos el ancho normal (100); el grosor sigue controlándose con font-weight. */
+body { font-variation-settings: "wdth" 100, "slnt" 0; }
+
+/* Elementos que llevan Tosh A según el manual (personalidad, no lectura larga) */
+h3,
+.btn,
+.site-nav a,
+.eyebrow,
+.tag,
+.chip,
+.footer-title,
+.field label,
+.swatches legend,
+.faq summary,
+.team-card h3,
+.anatomy__list h3,
+.process h3,
+.info-card h3,
+.insights strong,
+.bar__head span:first-child,
+.value-row strong,
+.tool-pill {
+  font-family: var(--font-accent);
+}
