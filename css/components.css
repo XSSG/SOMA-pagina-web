@@ -254,8 +254,7 @@
 
 /* -------------------------------------------------------------------------
    4. REDES SOCIALES
-   Estructura lista para tus íconos: coloca tu <img> o <svg> dentro de
-   .social-link__icon. Si el span queda vacío se muestra un círculo olivo.
+   Íconos de Instagram y Facebook en SVG (color arena sobre círculo olivo).
    ------------------------------------------------------------------------- */
 .social-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .75rem; }
 .social-link {
@@ -280,6 +279,8 @@
   flex: none;
 }
 .social-link__icon img, .social-link__icon svg { width: 60%; height: 60%; object-fit: contain; }
+.social-link__icon { color: var(--arena); transition: transform .3s var(--ease); }
+.social-link:hover .social-link__icon { transform: rotate(-8deg) scale(1.08); }
 .social-link:hover { background: var(--carbon); color: var(--arena); border-color: var(--carbon); }
 .site-footer .social-link:hover, .bg-carbon .social-link:hover { background: var(--arena); color: var(--carbon); border-color: var(--arena); }
 
